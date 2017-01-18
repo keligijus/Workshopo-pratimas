@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Workshopo Pratimas</title>
+</head>
+<body>
+<style type="text/css">
+  body {
+    max-width: 300px;
+    margin: 20px auto;
+  }
+  .completed {
+    text-decoration: line-through;
+  }
+  ul {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+  }
+
+  li {
+    padding: 2px 5px;
+  }
+
+  ul#tasks li:hover {
+    cursor: pointer;
+    opacity: .7;
+  }
+</style>
+  <ul id="tasks">
+    <li onclick="toggleCompleted(event)">Atlikti pratimą</li>
+  </ul>
+  <ul>
+    <li>
+      <form onsubmit="addNewTask(event)">
+        <input type="text" id="newTask">
+        <button type="submit">+</button>
+      </form>
+    </li>
+  </ul>
+
+  <button onclick="removeCompletedTasks()">Remove Completed</button>
+
+<script type="text/javascript">
+  function addNewTask(event) {
+    event.preventDefault();
+    var li = document.createElement("li");
+    li.onclick = toggleCompleted;
+    var input = document.getElementById("newTask");
+    var tasks = document.getElementById("tasks");
+    var t = document.createTextNode(input.value);
+
+    li.appendChild(t);
+    tasks.appendChild(li);
+    input.value = '';
+  }
+
+  function toggleCompleted(event) {
+    event.target.classList.toggle('completed');
+  }
+
+  function removeCompletedTasks() {
+    var completedTasks = document.querySelectorAll('.completed');
+
+    for (var i = 0; i < completedTasks.length; i++) {
+      completedTasks[i].remove();
+    }
+  }
+
+</script>
+</body>
+</html>

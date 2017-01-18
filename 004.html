@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Workshopo Pratimas</title>
+</head>
+<body>
+<style type="text/css">
+  body {
+    max-width: 300px;
+    margin: 20px auto;
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+  }
+
+  li {
+    padding: 2px 5px;
+  }
+
+  .completed {
+    text-decoration: line-through;
+  }
+
+  ul#tasks li:hover {
+    cursor: pointer;
+    opacity: .7;
+  }
+</style>
+  <h1>Pakeičiam statusą paspausdami ant užduoties</h1>
+  <ul id="tasks">
+    <li class="completed" onclick="toggleCompleted(event)">Atlikti pratimą</li>
+    <li onclick="toggleCompleted(event)">Susipažinti su HTML</li>
+  </ul>
+
+<script type="text/javascript">
+  function toggleCompleted(event) {
+    event.target.classList.toggle('completed');
+  }
+</script>
+</body>
+</html>
